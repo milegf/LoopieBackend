@@ -1,5 +1,7 @@
 package com.example.loopie.Products.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +22,6 @@ public class ProductController {
     
     @Autowired
     private ProductService productService;
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
