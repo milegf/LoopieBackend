@@ -31,7 +31,7 @@ public class Product {
     @Column(name = "precio")
     @NotNull(message = "El precio no puede ser nulo")
     @PositiveOrZero(message = "El precio debe ser mayor o igual a cero")
-    private double precio;
+    private Double precio;
 
     @Column(name = "categoria")
     @NotBlank(message = "La categoría no puede estar vacía")
@@ -40,7 +40,7 @@ public class Product {
     @Column(name = "stock")
     @NotNull(message = "El stock no puede ser nulo")
     @Min(0)
-    private int stock;
+    private Integer stock;
 
     @Column(name = "imagen")
     @NotBlank(message = "La imagen no puede estar vacía")
@@ -48,11 +48,11 @@ public class Product {
 
     @Column(name = "enOferta")
     @NotNull(message = "El campo enOferta no puede ser nulo")
-    private boolean enOferta;
+    private Boolean enOferta;
 
     @Column(name = "precioOferta")
     @PositiveOrZero(message = "El precio de oferta debe ser mayor o igual a cero")
-    private double precioOferta;
+    private Double precioOferta;
 
     @Column(name = "tienda")
     @NotBlank(message = "La tienda no puede estar vacía")
@@ -68,5 +68,5 @@ public class Product {
 
     @Column(name = "isVintage")
     @NotNull(message = "El campo isVintage no puede ser nulo")
-    private boolean isVintage;
+    private Boolean isVintage;
 }

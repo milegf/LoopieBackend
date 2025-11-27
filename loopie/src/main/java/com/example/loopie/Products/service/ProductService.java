@@ -37,7 +37,7 @@ public class ProductService {
         product.setCategoria(productDetails.getCategoria());
         product.setStock(productDetails.getStock());
         product.setImagen(productDetails.getImagen());
-        product.setEnOferta(productDetails.isEnOferta());
+        product.setEnOferta(productDetails.getEnOferta());
         product.setPrecioOferta(productDetails.getPrecioOferta());
         product.setTienda(productDetails.getTienda());
         product.setTalla(productDetails.getTalla());
