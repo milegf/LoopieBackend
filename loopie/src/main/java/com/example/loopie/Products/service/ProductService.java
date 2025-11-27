@@ -21,7 +21,8 @@ public class ProductService {
     }
     
     public Product getProductById(int id) {
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        return productRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
     }
     
     public Product createProduct(Product product) {
@@ -33,7 +34,14 @@ public class ProductService {
         product.setNombre(productDetails.getNombre());
         product.setDescripcion(productDetails.getDescripcion());
         product.setPrecio(productDetails.getPrecio());
+        product.setCategoria(productDetails.getCategoria());
         product.setStock(productDetails.getStock());
+        product.setImagen(productDetails.getImagen());
+        product.setEnOferta(productDetails.isEnOferta());
+        product.setPrecioOferta(productDetails.getPrecioOferta());
+        product.setTienda(productDetails.getTienda());
+        product.setTalla(productDetails.getTalla());
+        product.setTag(productDetails.getTag());
         return productRepository.save(product);
     }
     
@@ -41,6 +49,8 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    
+    public Product saveProduct(Product p) {
+        return productRepository.save(p);
+    }
 
 }

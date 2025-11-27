@@ -1,7 +1,10 @@
 package com.example.loopie.Products.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +29,8 @@ public class Product {
     private String descripcion;
 
     @Column(name = "precio")
-    @NotBlank(message = "El precio no puede estar vacío")
+    @NotNull(message = "El precio no puede ser nulo")
+    @PositiveOrZero(message = "El precio debe ser mayor o igual a cero")
     private double precio;
 
     @Column(name = "categoria")
@@ -34,7 +38,8 @@ public class Product {
     private String categoria;
 
     @Column(name = "stock")
-    @NotBlank(message = "El stock no puede estar vacío")
+    @NotNull(message = "El stock no puede ser nulo")
+    @Min(0)
     private int stock;
 
     @Column(name = "imagen")
@@ -42,11 +47,11 @@ public class Product {
     private String imagen;
 
     @Column(name = "enOferta")
-    @NotBlank(message = "El estado de la oferta no puede estar vacío")
+    @NotNull(message = "El campo enOferta no puede ser nulo")
     private boolean enOferta;
 
     @Column(name = "precioOferta")
-    @NotBlank(message = "El precio de la oferta no puede estar vacío")
+    @PositiveOrZero(message = "El precio de oferta debe ser mayor o igual a cero")
     private double precioOferta;
 
     @Column(name = "tienda")
@@ -62,6 +67,6 @@ public class Product {
     private String tag;
 
     @Column(name = "isVintage")
-    @NotBlank(message = "El estado de vintage no puede estar vacío")
+    @NotNull(message = "El campo isVintage no puede ser nulo")
     private boolean isVintage;
 }

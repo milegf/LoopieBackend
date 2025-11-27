@@ -3,6 +3,7 @@ package com.example.loopie.Users.dto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,7 +49,8 @@ public class User {
     private String direccion;
 
     @Column(name = "estado")
-    private String estado;
+    @NotNull
+    private boolean estado;
 
 
 }

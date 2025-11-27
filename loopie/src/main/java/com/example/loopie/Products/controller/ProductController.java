@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.loopie.Products.model.Product;
-import com.example.loopie.Products.repository.ProductRepository;
 import com.example.loopie.Products.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +27,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
@@ -38,12 +37,17 @@ public class ProductController {
         return ResponseEntity.ok(productService.createProduct(product));
     }
 
-    @PutMapping("/{id}")
+    @PostMapping("/add")
+    public Product saveProduct(@RequestBody Product product) {
+        return productService.saveProduct(product);
+    }
+
+    @PutMapping("/id")
     public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product product) {
         return ResponseEntity.ok(productService.updateProduct(id, product));
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();

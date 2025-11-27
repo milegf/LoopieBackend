@@ -30,8 +30,10 @@ public class UserService {
 
     public User updateUser(int id, User user) {
         User dbUser = getUserById(id);
-        dbUser.setNombre(user.getNombre());
+        dbUser.setUsername(user.getUsername());
         dbUser.setEmail(user.getEmail());
+        dbUser.setPassword(user.getPassword());
+        dbUser.setDireccion(user.getDireccion());
         return repository.save(dbUser);
     }
 
